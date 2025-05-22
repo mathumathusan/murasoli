@@ -1,0 +1,47 @@
+composer create-project laravel/laravel murasoli
+
+cd murasoli
+
+php artisan serve
+
+---------------------------------------------------------------------------------------------
+
+.env file la 
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=murasoli
+DB_USERNAME=root
+DB_PASSWORD=
+
+
+-----------------------------------------------------------------------------------------------------
+app/providers/AppServiceProvider.php ->  
+
+public function boot(): void
+    {
+        Schema::defaultStringLength(191);
+    }
+
+----------------------------------------------------------------------------------------------------------
+
+php artisan migrate:fresh
+
+
+-------------------------------------------------------------------------------------------------------------
+install jetstream for authentication
+
+composer require laravel/jetstream
+
+php artisan jetstream:install livewire
+
+http://127.0.0.1:8000/login 
+http://127.0.0.1:8000/register  try to enter the url and ensure the jetstream authentication
+
+
+------------------------------------------------------------------------------------------------------------------
+
+for news fetching,
+composer require laminas/laminas-feed
+
